@@ -15,7 +15,7 @@ TODO
 	- [ ] Detect Cycle
 	- [ ] Topological Sort
 * Tree
-	- [ ] Find distance between nodes
+	- [x] Find distance between nodes
 	- [x] Build BST
 	- [x] Min/Max node
 	- [x] Successor/Predecessor
