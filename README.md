@@ -2,6 +2,8 @@
 
 This repo is created for practicing and refreshing knowledge in algorithms.
 
+[![Build Status](https://travis-ci.org/onurbaysan/Algorithms.svg?branch=master)](https://travis-ci.org/onurbaysan/Algorithms)
+
 TODO
 ------
 * Graph
