@@ -1,7 +1,6 @@
 package com.onurbaysan.datastructures;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by stall10n on 7.02.2017.
