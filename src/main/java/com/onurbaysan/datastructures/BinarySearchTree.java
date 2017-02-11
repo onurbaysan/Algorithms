@@ -13,12 +13,9 @@ public class BinarySearchTree
         this.root = root;
     }
 
-    public void insertNode(TreeNode node)
+    public void insertNode(int value)
     {
-        if (node != null)
-        {
-            root = insertNode(root, node);
-        }
+        root = insertNode(root, new TreeNode(value));
     }
 
     private TreeNode insertNode(TreeNode rootNode, TreeNode node)
@@ -41,6 +38,83 @@ public class BinarySearchTree
 
         return rootNode;
     }
+    
+
+    public TreeNode getParent(int value)
+    {
+        TreeNode tmp = root;
+        TreeNode parent = null;
+        int nodeValue;
+
+        while (tmp != null)
+        {
+            nodeValue = tmp.getValue();
+
+            if (nodeValue == value)
+            {
+                return parent;
+            }
+            else if (nodeValue > value)
+            {
+                parent = tmp;
+                tmp = tmp.getLeftChild();
+            }
+            else
+            {
+                parent = tmp;
+                tmp = tmp.getRightChild();
+            }
+        }
+
+        return null;
+    }
+
+    public TreeNode getSuccessor(TreeNode rootNode)
+    {
+        if (rootNode != null)
+        {
+            if (rootNode.getRightChild() != null)
+            {
+                return getMinimumNode(rootNode.getRightChild());
+            }
+
+            TreeNode parent = getParent(rootNode.getValue());
+
+            while (parent != null
+                    && parent.getValue() < rootNode.getValue())
+            {
+                parent = getParent(parent.getValue());
+            }
+
+            return parent;
+        }
+
+        return null;
+
+    }
+
+    public TreeNode getPredecessor(TreeNode rootNode)
+    {
+        if (rootNode != null)
+        {
+            if (rootNode.getLeftChild() != null)
+            {
+                return getMaximumNode(rootNode.getLeftChild());
+            }
+
+            TreeNode parent = getParent(rootNode.getValue());
+
+            while (parent != null
+                    && parent.getValue() > rootNode.getValue())
+            {
+                parent = getParent(parent.getValue());
+            }
+
+            return parent;
+        }
+
+        return null;
+    }
 
     public int getChildCount(TreeNode node)
     {
@@ -59,21 +133,18 @@ public class BinarySearchTree
         }
     }
 
-    public TreeNode findNode(TreeNode rootNode, int value)
+    public TreeNode findNodeRecursive(TreeNode rootNode, int value)
     {
-        if(rootNode == null)
-        {
-            return null;
-        }
-        else
+        if(rootNode != null
+                && rootNode.getValue() != value)
         {
             if (rootNode.getValue() > value)
             {
-                return findNode(rootNode.getLeftChild(), value);
+                return findNodeRecursive(rootNode.getLeftChild(), value);
             }
-            else if (rootNode.getValue() < value)
+            else
             {
-                return findNode(rootNode.getRightChild(), value);
+                return findNodeRecursive(rootNode.getRightChild(), value);
             }
         }
 
@@ -81,13 +152,78 @@ public class BinarySearchTree
 
     }
 
-    public void printPreorder(TreeNode rootNode)
+    public TreeNode findNode(int value)
+    {
+        return findNode(root, value);
+    }
+
+    public TreeNode findNode(TreeNode rootNode, int value)
+    {
+        TreeNode tmp = rootNode;
+        int nodeValue;
+
+        while (tmp != null)
+        {
+            nodeValue = tmp.getValue();
+
+            if (nodeValue == value)
+            {
+                return tmp;
+            }
+            else if (nodeValue > value)
+            {
+                tmp = tmp.getLeftChild();
+            }
+            else
+            {
+                tmp = tmp.getRightChild();
+            }
+        }
+
+        return tmp;
+    }
+
+    public TreeNode getMinimumNode()
+    {
+        return getMinimumNode(root);
+    }
+
+    public TreeNode getMinimumNode(TreeNode rootNode)
+    {
+        TreeNode tmp = rootNode;
+
+        while (tmp.getLeftChild() != null)
+        {
+            tmp = tmp.getLeftChild();
+        }
+
+        return tmp;
+    }
+
+    public TreeNode getMaximumNode()
+    {
+        return getMaximumNode(root);
+    }
+
+    public TreeNode getMaximumNode(TreeNode rootNode)
+    {
+        TreeNode tmp = rootNode;
+
+        while (tmp.getRightChild() != null)
+        {
+            tmp = tmp.getRightChild();
+        }
+
+        return tmp;
+    }
+
+    public void printInorder(TreeNode rootNode)
     {
         if (rootNode != null)
         {
-            printPreorder(rootNode.getLeftChild());
+            printInorder(rootNode.getLeftChild());
             System.out.println(rootNode.getValue() + " ");
-            printPreorder(rootNode.getRightChild());
+            printInorder(rootNode.getRightChild());
         }
     }
 

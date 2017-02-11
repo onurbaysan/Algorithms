@@ -17,6 +17,33 @@ public class FloydWarshall
         List<GraphNode> nodeList = weightedGraph.getNodes();
         double[][] distArr = new double[vertices][vertices];
 
+        initializeDistanceArray(weightedGraph, vertices, nodeList, distArr);
+
+
+        for (int k=0; k<vertices; k++)
+        {
+            for (int i=0; i<vertices; i++)
+            {
+                for (int j=0; j<vertices; j++)
+                {
+                    if (i != j && i != k && j != k)
+                    {
+                        distArr[i][j] = Math.min(distArr[i][j],
+                                distArr[i][k] + distArr[k][j]);
+                    }
+                }
+            }
+        }
+
+        return distArr;
+
+    }
+
+    private static void initializeDistanceArray(DirectedWeightedGraph weightedGraph,
+                                                int vertices,
+                                                List<GraphNode> nodeList,
+                                                double[][] distArr)
+    {
         for (int i=0; i<vertices; i++)
         {
             for (int j=0; j<vertices; j++)
@@ -40,26 +67,6 @@ public class FloydWarshall
                 }
             }
         }
-
-
-
-        for (int k=0; k<vertices; k++)
-        {
-            for (int i=0; i<vertices; i++)
-            {
-                for (int j=0; j<vertices; j++)
-                {
-                    if (i != j && i != k && j != k)
-                    {
-                        distArr[i][j] = Math.min(distArr[i][j],
-                                distArr[i][k] + distArr[k][j]);
-                    }
-                }
-            }
-        }
-
-        return distArr;
-
     }
 
     public static void printDistances(DirectedWeightedGraph weightedGraph)
