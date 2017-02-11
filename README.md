@@ -15,6 +15,8 @@ TODO
 * Tree
 	- [ ] Find distance between nodes
 	- [x] Build BST
+	- [x] Min/Max node
+	- [x] Successor/Predecessor
 	- [ ] Max/Min depth
 	- [ ] Maximum path sum
 	- [ ] Lowest Common Ancestor in BST
