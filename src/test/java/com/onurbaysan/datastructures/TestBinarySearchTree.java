@@ -138,4 +138,29 @@ public class TestBinarySearchTree
         assertEquals(7, predecessor.getValue());
     }
 
+    @Test
+    public void testLCAWithHashSet()
+    {
+        int lca = bst.lcaWithHashSet(3, 7);
+        assertEquals(5, lca);
+
+        lca = bst.lcaWithHashSet(3, 5);
+        assertEquals(5, lca);
+
+        lca = bst.lcaWithHashSet(7, 11);
+        assertEquals(10, lca);
+    }
+
+    @Test
+    public void testLCAWithoutExtraSpace()
+    {
+        int lca = bst.lcaWithoutExtraSpace(3, 7);
+        assertEquals(5, lca);
+
+        lca = bst.lcaWithoutExtraSpace(3, 5);
+        assertEquals(5, lca);
+
+        lca = bst.lcaWithoutExtraSpace(7, 11);
+        assertEquals(10, lca);
+    }
 }

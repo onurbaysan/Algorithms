@@ -21,7 +21,7 @@ TODO
 	- [x] Successor/Predecessor
 	- [ ] Max/Min depth
 	- [ ] Maximum path sum
-	- [ ] Lowest Common Ancestor in BST
+	- [x] Lowest Common Ancestor (for both BST and binary tree)
 	- [ ] Balance after remove operation in BST
 	- [ ] Binary Index Tree
 * Sorting

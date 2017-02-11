@@ -1,5 +1,9 @@
 package com.onurbaysan.datastructures;
 
+import com.sun.deploy.panel.TreeBuilder;
+
+import java.util.HashSet;
+
 /**
  * Created by stall10n on 9.02.2017.
  */
@@ -11,6 +15,11 @@ public class BinarySearchTree
     public BinarySearchTree(TreeNode root)
     {
         this.root = root;
+    }
+
+    public TreeNode getRoot()
+    {
+        return root;
     }
 
     public void insertNode(int value)
@@ -216,6 +225,65 @@ public class BinarySearchTree
 
         return tmp;
     }
+
+    public int lcaWithHashSet(int value1, int value2)
+    {
+        int value;
+        int destValue = value2;
+
+        TreeNode node1Parent = getParent(value1);
+        TreeNode destParent;
+        HashSet<Integer> node1ParentSet = new HashSet<Integer>();
+
+        while (node1Parent != null)
+        {
+            value = node1Parent.getValue();
+
+            node1ParentSet.add(value);
+            node1Parent = getParent(value);
+        }
+
+        while (!node1ParentSet.contains(destValue))
+        {
+            destParent = getParent(destValue);
+
+            if (destParent == null)
+            {
+                return root.getValue();
+            }
+            else
+            {
+                destValue = destParent.getValue();
+            }
+        }
+
+        return destValue;
+    }
+
+    public int lcaWithoutExtraSpace(int value1, int value2)
+    {
+        TreeNode tmp = root;
+
+        while (tmp != null)
+        {
+            if ((tmp.getValue() >= value1 && tmp.getValue() <= value2)
+                    || (tmp.getValue() <= value1 && tmp.getValue() >= value2))
+            {
+                return tmp.getValue();
+            }
+            else if (tmp.getValue() > value1)
+            {
+                tmp = tmp.getLeftChild();
+            }
+            else
+            {
+                tmp = tmp.getRightChild();
+            }
+        }
+
+        return root.getValue();
+    }
+
 
     public void printInorder(TreeNode rootNode)
     {
