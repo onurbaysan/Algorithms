@@ -163,4 +163,34 @@ public class TestBinarySearchTree
         lca = bst.lcaWithoutExtraSpace(7, 11);
         assertEquals(10, lca);
     }
+
+    @Test
+    public void testDistanceToRoot()
+    {
+        int distanceToRoot = bst.getDistanceToRoot(3);
+        assertEquals(2, distanceToRoot);
+
+        distanceToRoot = bst.getDistanceToRoot(12);
+        assertEquals(1, distanceToRoot);
+
+        distanceToRoot = bst.getDistanceToRoot(10);
+        assertEquals(0, distanceToRoot);
+
+        distanceToRoot = bst.getDistanceToRoot(9);
+        assertEquals(-1, distanceToRoot);
+    }
+
+    @Test
+    public void testDistanceBetweenTwoNodes()
+    {
+        int distanceBetweenNodes = bst.getDistanceBetweenNodes(3, 7);
+        assertEquals(2, distanceBetweenNodes);
+
+        distanceBetweenNodes = bst.getDistanceBetweenNodes(11, 7);
+        assertEquals(4, distanceBetweenNodes);
+
+        distanceBetweenNodes = bst.getDistanceBetweenNodes(12, 10);
+        assertEquals(1, distanceBetweenNodes);
+    }
+
 }

@@ -7,7 +7,6 @@ import java.util.HashSet;
  */
 public class BinarySearchTree
 {
-
     private TreeNode root;
 
     public BinarySearchTree(TreeNode root)
@@ -45,7 +44,6 @@ public class BinarySearchTree
 
         return rootNode;
     }
-    
 
     public TreeNode getParent(int value)
     {
@@ -280,6 +278,46 @@ public class BinarySearchTree
         }
 
         return root.getValue();
+    }
+
+    public int getDistanceBetweenNodes(int value1, int value2)
+    {
+        int lca = lcaWithoutExtraSpace(value1, value2);
+
+        return getDistanceToRoot(value1) +
+                getDistanceToRoot(value2) -
+                (2 * getDistanceToRoot(lca));
+    }
+
+    public int getDistanceToRoot(int value)
+    {
+        TreeNode tmp = root;
+        int counter = 0;
+
+        while (tmp != null)
+        {
+            if (tmp.getValue() > value)
+            {
+                tmp = tmp.getLeftChild();
+            }
+            else if (tmp.getValue() < value)
+            {
+                tmp = tmp.getRightChild();
+            }
+            else
+            {
+                break;
+            }
+
+            counter++;
+        }
+
+        if (tmp == null)
+        {
+            return -1;
+        }
+
+        return counter;
     }
 
 
