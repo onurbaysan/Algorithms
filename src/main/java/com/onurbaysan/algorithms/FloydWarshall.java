@@ -1,7 +1,7 @@
 package com.onurbaysan.algorithms;
 
-import com.onurbaysan.datastructures.GraphNode;
 import com.onurbaysan.datastructures.DirectedWeightedGraph;
+import com.onurbaysan.datastructures.GraphNode;
 import com.onurbaysan.datastructures.WeightedEdge;
 
 import java.util.List;
