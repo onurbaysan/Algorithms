@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by stall10n on 7.02.2017.
  */
-public class DirectedWeightedGraph
+public class DirectedWeightedGraph implements IGraph
 {
     private Map<GraphNode, List<WeightedEdge>> neighborMap;
     private int vertices;

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by stall10n on 7.02.2017.
  */
-public class BasicGraph
+public class BasicGraph implements IGraph
 {
     private Map<GraphNode, List<GraphNode>> neighborMap;
     private int vertices;
@@ -37,6 +37,11 @@ public class BasicGraph
     public List<GraphNode> getNeighbors(GraphNode GraphNode)
     {
         return neighborMap.get(GraphNode);
+    }
+
+    public List<GraphNode> getNodes()
+    {
+        return new ArrayList<GraphNode>(neighborMap.keySet());
     }
 
     public void printGraph()

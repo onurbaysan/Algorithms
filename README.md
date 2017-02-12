@@ -8,7 +8,7 @@ TODO
 ------
 * Graph
 	- [ ] DFS
-	- [ ] BFS
+	- [x] BFS
 	- [ ] Minimum Spanning Tree
 	- [x] Floyd Warshall
 	- [ ] Shortest Path
