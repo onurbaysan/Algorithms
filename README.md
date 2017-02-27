@@ -33,6 +33,7 @@ TODO
 	- [ ] Binary Search
 	- [ ] Find Nth smallest/largest in unsorted arrayå
 * String
+    - [x] Permutation
 	- [ ] Generate all possible substring
 	- [ ] Longest substring occurence
 * Dynamic Programming
