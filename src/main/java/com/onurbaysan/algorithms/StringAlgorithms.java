@@ -42,25 +42,28 @@ public class StringAlgorithms
         String maxSubstring = "";
         String currentSubstring = "";
 
-        for (int i=0; i<originalStr.length(); i++)
+        for (int begin=0; begin<originalStr.length(); begin++)
         {
-            charAt = originalStr.charAt(i);
-
-            if (characterSet.contains(charAt))
+            for (int end=begin; end<originalStr.length(); end++)
             {
-                if (currentSubstring.length() > maxSubstring.length())
+                charAt = originalStr.charAt(end);
+
+                if (characterSet.contains(charAt))
                 {
-                    maxSubstring = currentSubstring;
+                    if (currentSubstring.length() > maxSubstring.length())
+                    {
+                        maxSubstring = currentSubstring;
+                    }
+
+                    characterSet.clear();
+                    currentSubstring = "";
+                    break;
                 }
 
-                currentSubstring = "";
-            }
-            else
-            {
-                characterSet.add(charAt);
-            }
 
-            currentSubstring += charAt;
+                characterSet.add(charAt);
+                currentSubstring += charAt;
+            }
         }
 
         if (maxSubstring.equals(""))
