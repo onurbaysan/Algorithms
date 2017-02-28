@@ -34,6 +34,43 @@ public class StringAlgorithms
         }
     }
 
+    public static String longestSubstringWithoutRepetation(String originalStr)
+    {
+        Set<Character> characterSet = new HashSet<Character>();
+        char charAt;
+
+        String maxSubstring = "";
+        String currentSubstring = "";
+
+        for (int i=0; i<originalStr.length(); i++)
+        {
+            charAt = originalStr.charAt(i);
+
+            if (characterSet.contains(charAt))
+            {
+                if (currentSubstring.length() > maxSubstring.length())
+                {
+                    maxSubstring = currentSubstring;
+                }
+
+                currentSubstring = "";
+            }
+            else
+            {
+                characterSet.add(charAt);
+            }
+
+            currentSubstring += charAt;
+        }
+
+        if (maxSubstring.equals(""))
+        {
+            return originalStr;
+        }
+
+        return maxSubstring;
+    }
+
     private static String swap(String originalStr, int left, int right)
     {
         char[] charArray = originalStr.toCharArray();

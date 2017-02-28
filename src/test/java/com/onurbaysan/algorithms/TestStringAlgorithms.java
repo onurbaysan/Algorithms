@@ -18,11 +18,20 @@ public class TestStringAlgorithms
         Set<String> allPermutations = StringAlgorithms.getAllPermutations(word);
 
         assertNotNull(allPermutations);
-        assertEquals(allPermutations.size(), 24);
+        assertEquals(24, allPermutations.size());
 
         assertTrue(allPermutations.contains("abdc"));
         assertTrue(allPermutations.contains("bacd"));
         assertTrue(allPermutations.contains("cdba"));
         assertTrue(allPermutations.contains("dcba"));
+    }
+
+    @Test
+    public void testLongestSubstringWithoutRepetation()
+    {
+        String word = "onurbaysan";
+
+        String longestSubstr = StringAlgorithms.longestSubstringWithoutRepetation(word);
+        assertEquals("onurbays", longestSubstr);
     }
 }

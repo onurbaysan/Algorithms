@@ -31,9 +31,10 @@ TODO
 	- [ ] Heapsort
 * Searching
 	- [ ] Binary Search
-	- [ ] Find Nth smallest/largest in unsorted arrayå
+	- [ ] Find Nth smallest/largest in unsorted array
 * String
     - [x] Permutation
+    - [x] Longest substring without repetation
 	- [ ] Generate all possible substring
 	- [ ] Longest substring occurence
 * Dynamic Programming
