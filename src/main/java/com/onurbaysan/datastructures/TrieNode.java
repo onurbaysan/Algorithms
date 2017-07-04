@@ -1,5 +1,8 @@
 package com.onurbaysan.datastructures;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by stall10n on 4.07.2017.
  */
