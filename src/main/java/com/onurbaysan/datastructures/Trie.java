@@ -1,5 +1,7 @@
 package com.onurbaysan.datastructures;
 
+import java.util.*;
+
 /**
  * Created by stall10n on 4.07.2017.
  */
