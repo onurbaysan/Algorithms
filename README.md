@@ -24,6 +24,9 @@ TODO
 	- [x] Lowest Common Ancestor (for both BST and binary tree)
 	- [ ] Balance after remove operation in BST
 	- [ ] Binary Index Tree
+* Trie
+	- [x] Trie
+	- [x] Prefix search
 * Sorting
 	- [ ] Quicksort
 	- [ ] Mergesort
